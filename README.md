@@ -20,3 +20,11 @@ commands
 
 - code: 命令代码
 - exec: 具体命令字符串
+
+## 编译
+
+```bash
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o build/web-rpc-linux .
+CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o build/web-rpc-darwin .
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o build/web-rpc.exe .
+```
