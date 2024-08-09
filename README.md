@@ -28,3 +28,27 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o build/web-rpc-linux .
 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o build/web-rpc-darwin .
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o build/web-rpc.exe .
 ```
+
+## 开机启动
+
+/etc/systemd/system/web-rpc.service
+
+```bash
+[Unit]
+Description=web rpc Service
+After=network.target
+
+[Service]
+Type=web-rpc
+ExecStart=/usr/bin/web-rpc web -c /etc/web-rpc/config.json
+User=root
+
+[Install]
+WantedBy=multi-user.target
+```
+
+查看日志:
+
+```bash
+journalctl -u web-rpc
+```
