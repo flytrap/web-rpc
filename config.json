@@ -1,0 +1,15 @@
+{
+    "runMode": "release",
+    "printConfig": true,
+    "http": {
+        "host": "0.0.0.0",
+        "port": 8080,
+        "method": "POST"
+    },
+    "commands": [
+        {
+            "code": "reloadNginx",
+            "exec": "nginx -s reload"
+        }
+    ]
+}
